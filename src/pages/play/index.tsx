@@ -21,35 +21,31 @@ const PlayCheat: FC = () => {
   const [guess, setGuess] = useState<string>('0');
   const [drawnNo, setDrawnNo] = useState<string>();
   const [result, setResult] = useState<string>();
-  const [newGame, setNewGame] = useState<boolean>(true);
   const [victory, setVictory] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean>(false);
 
+  const min = localStorage.getItem('minNumber');
+  const max = localStorage.getItem('maxNumber');
+
+  async function sorteio() {
+    api
+      .get(`rand?min=${min}&max=${max}`)
+      .then((response: AxiosResponse) => {
+        setDrawnNo(response.data.value);
+      })
+      .catch((error: AxiosError) => {
+        if (error.response) {
+          setHasError(true);
+          setResult('ERRO');
+          setGuess(String(error.response.status));
+          document.getElementById('result')?.classList.add('error');
+        }
+      });
+  }
+
   useEffect(() => {
-    const min = localStorage.getItem('minNumber');
-    const max = localStorage.getItem('maxNumber');
-
-    async function sorteio() {
-      api
-        .get(`rand?min=${min}&max=${max}`)
-        .then((response: AxiosResponse) => {
-          setDrawnNo(response.data.value);
-        })
-        .catch((error: AxiosError) => {
-          if (error.response) {
-            setHasError(true);
-            setResult('ERRO');
-            setGuess(String(error.response.status));
-            document.getElementById('result')?.classList.add('error');
-          }
-        });
-    }
-
-    if (newGame) {
-      sorteio();
-      setNewGame(false);
-    }
-  }, [newGame]);
+    sorteio();
+  }, []);
 
   function VerifyGuess(guessNo: string) {
     // Tranformando valores em inteiro
@@ -96,7 +92,7 @@ const PlayCheat: FC = () => {
   }
 
   function Reset() {
-    setNewGame(true);
+    sorteio();
     setVictory(false);
     setHasError(false);
     setResult('');

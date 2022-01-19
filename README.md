@@ -1,46 +1,124 @@
-# Getting Started with Create React App
+# Qual é o Número?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[English Version](./docs/English.md)
 
-## Available Scripts
+**Qual é o número?** é um jogo de Browser que tem como objetivo acertar um número sorteado aleatoriamente. O usuário pode configurar o intervalo do sorteio ou apenas começar uma partida sem uma pré configuração, e nesse caso, o valor estará entre 0 e 300. O valor máximo aceito pelo jogo é 999 e não são permitido valores negativos.
 
-In the project directory, you can run:
+[Manual do Jogo](./docs/ComoJogar.md)
+
+![GuessNumber](./assets/GameStart.png)
+
+## Implementação
+
+O projeto foi desenvolvido para testar habilidades em [HTML], [CSS] e [JavaScript]. Para agilizar o desenvolvimento foi utilizada a biblioteca [ReactJS] disponibilizada pelo **[Facebook]** (_[projeto aberto](https://github.com/facebook/react)_). A implementação foi melhorada utilizando o superset [Typescript] que trás melhorias à linguagem [Javascript]. Algumas bibliotecas de terceiros foram implementadas para auxílio em conexão com APIs, componentes estilizados e mensagens de erro amigáveis ao usuário.
+
+## Como executar
+
+### Primeiros passos
+
+Para executar a aplicação basta clonar esse repositório localmente, e, ao acessar o diretório clonado bastar instalar os pacotes do node_modules e executar o script para iniciar o modo de desenvolvimento, pelo qual é possível testar a aplicação.
+
+```powershell
+  git clone https://github.com/vieiraerick/GuessNumber.git
+
+  cd GuessNumber
+
+  npm install
+
+  npm run start
+```
+
+ou então:
+
+```powershell
+  git clone https://github.com/vieiraerick/GuessNumber.git
+
+  cd GuessNumber
+
+  yarn install
+
+  yarn start
+```
+
+Ou então é possível executar um arquivo em lotes que está presente na raiz do diretório que executa os dois ultimos passos.
+
+```powershell
+  git clone https://github.com/vieiraerick/GuessNumber.git
+
+  cd GuessNumber
+
+  ./start.bat
+```
+
+### Editando o código
+
+O código pode ser editado com qualquer editor de texto ou IDE de sua preferência.
+
+### Testes automatizados
+
+O projeto tambem foi utilizado como base para estudo de testes automatizados, sendo assim os testes presentes nessa versão são muito básicos pois são o começo dos estudos. Para executar os testes basta rodar o seguinte comando:
+
+```powershell
+yarn test
+```
+
+ou então
+
+```powershell
+npm run test
+```
+
+Também é possível executar testes e gerar um relatório de cobertura executando o seguinte comando:
+
+```powershell
+yarn testCoverage
+```
+
+ou então
+
+```powershell
+npm run testCoverage
+```
+
+### Scripts do projeto
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Executa a aplicação em modo de desenvolvimento. Abra [http://localhost:3000](http://localhost:3000), para ver o projeto se a aplicação não abrir automaticamente.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Executa os testes automatizados.
+
+### `yarn testCoverage`
+
+Executa os testes e gera o [Relatório de Cobertura](./coverage/lcov-report/index.html).
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Constrói a versão de produção do projeto.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tecnologias, Bibliotecas e Pacotes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [HTML]
+- [CSS]
+- [Javascript]
+- [Typescript]
+- [ReactJS]
+- [Axios](https://axios-http.com/docs/intro)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Jest](https://jestjs.io/pt-BR/)
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [Font Awesome](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react)
+- [Styled Components](https://styled-components.com/)
+- [Polished](https://polished.js.org/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[facebook]: https://www.facebook.com/
+[reactjs]: https://pt-br.reactjs.org/
+[typescript]: https://www.typescriptlang.org/
+[javascript]: https://www.javascript.com/
+[html]: https://www.w3schools.com/html/
+[css]: https://www.w3schools.com/css/
